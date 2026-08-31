@@ -684,14 +684,8 @@
     /* ---------- PROJECTS ---------- */
     .proj-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 24px;
-    }
-
-    @media (max-width:940px) {
-      .proj-grid {
-        grid-template-columns: 1fr;
-      }
     }
 
     .proj-card {
@@ -964,26 +958,6 @@
       color: var(--accent);
     }
 
-    footer {
-      padding: 36px 0;
-      border-top: 1px solid var(--border-soft);
-    }
-
-    .foot-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-family: var(--font-mono);
-      font-size: 12.5px;
-      color: var(--text-faint);
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .foot-row a:hover {
-      color: var(--accent);
-    }
-
     /* reveal on scroll */
     .reveal {
       opacity: 0;
@@ -1063,9 +1037,9 @@
         <div>
           <div class="hero-kicker"><span class="pulse"></span>Open to job opportunities · Graduating Dec 2026</div>
           <h1 class="hero-title">Grishma<br>Thumar<span class="grad">.</span></h1>
-          <p class="hero-sub">Computer Science student at SFSU building full-stack systems — from distributed backend
-            pipelines to the React interfaces people actually touch. Currently leading engineering teams and 8+
-            initiatives at SparkSF.</p>
+          <p class="hero-sub">Computer Science student at SFSU building full-stack systems and AI-assisted workflows —
+            from distributed backend pipelines and multi-agent research tools to the React interfaces people actually
+            touch. Currently leading engineering teams and 8+ initiatives at SparkSF.</p>
           <div class="hero-actions">
             <a href="#projects" class="btn btn-primary">View My Work →</a>
           </div>
@@ -1093,6 +1067,8 @@
                 class="val">150+</span></div>
             <div class="console-row"><span class="label"><span class="led"></span>Engineers led</span><span
                 class="val">5-member team</span></div>
+            <div class="console-row"><span class="label"><span class="led"></span>AI research time
+                (VentureScope)</span><span class="val">&lt;2 min</span></div>
           </div>
           <div class="console-foot">
             <span>SFSU · San Francisco, CA</span>
@@ -1124,9 +1100,11 @@
               re-architecting a legacy site into a modern React/Node platform and shipping 15+ production APIs handling
               1.2K+ daily requests.</p>
             <p>What I like most is the connective tissue of a product — the point where a database schema, a backend
-              route, and a UI component all have to agree with each other. That shows up in everything I build, from a
-              <strong>distributed log-monitoring system</strong> to a <strong>tutoring platform I led as CTO</strong>
-              for a 5-person team.</p>
+              route, and a UI component all have to agree with each other. That shows up across everything I build: a
+              <strong>distributed log-monitoring system</strong> with automated anomaly detection, a <strong>multi-agent
+                AI research pipeline</strong> that grounds its output in 70–100 sources, and a <strong>tutoring platform
+                I led as CTO</strong> for a 5-person team. My foundation spans data structures & algorithms, parallel
+              computing, and networking, and lately that's extended into AI-assisted development, ML, and NLP.</p>
             <p>Outside of code, I lead <strong>SparkSF</strong> as President, coordinating 8+ career and networking
               initiatives for 150+ students, and I've held logistics and outreach roles across <strong>SFHacks</strong>
               and <strong>Society of Women Engineers</strong>. I care about the same thing in both worlds: building
@@ -1146,6 +1124,8 @@
           <span class="gpa">GPA 3.93 / 4.0 · Dean's List, Fall 2022–Spring 2026</span>
           <div class="tag-row">
             <span class="tag">Data Structures & Algorithms</span>
+            <span class="tag">Parallel Computing</span>
+            <span class="tag">Information Retrieval</span>
             <span class="tag">Big Data Technologies</span>
             <span class="tag">Computer Networks</span>
             <span class="tag">Advanced Database Organization</span>
@@ -1182,6 +1162,8 @@
               automated media workflows through production APIs.</li>
             <li>Reduced production breakages by 25% through cross-service debugging, API validation, code reviews, and
               disciplined Git/GitHub release workflows.</li>
+            <li>Improved feature delivery across frontend and backend systems by collaborating with UX/UI designers and
+              engineers to translate product requirements into tested, production-ready software components.</li>
           </ul>
           <div class="tag-row">
             <span class="tag">React</span><span class="tag">Node.js</span><span class="tag">Express</span><span
@@ -1211,10 +1193,27 @@
       <div class="section-head reveal">
         <div class="eyebrow">Projects</div>
         <h2>Things I've shipped — and one I'm mid-build on.</h2>
-        <p>A mix of full-stack platforms, backend systems, and a project currently in progress.</p>
+        <p>Full-stack platforms, AI-driven research tooling, and backend systems — including a project currently in
+          progress.</p>
       </div>
 
       <div class="proj-grid reveal">
+
+        <!-- VentureScope -->
+        <div class="proj-card">
+          <div class="proj-top">
+            <span class="proj-status live"><span class="led"></span>Shipped</span>
+          </div>
+          <h3>VentureScope — Multi-Agent AI Due Diligence Platform</h3>
+          <p>Orchestrated 4 specialized AI agents (market, financial, competitive, and risk analysis) to cut end-to-end
+            research time to under 2 minutes. Reports are grounded with 70–100 source citations via retrieval and
+            structured tool calling, coordinating 15+ tool calls per analysis and validated with LLM-as-judge evaluation
+            to reach 100% competitor recall in testing.</p>
+          <div class="tag-row">
+            <span class="tag">Multi-Agent AI</span><span class="tag">LLM Tool Calling</span><span
+              class="tag">Retrieval</span><span class="tag">Python</span>
+          </div>
+        </div>
 
         <!-- CampusFlow -->
         <div class="proj-card">
@@ -1225,19 +1224,6 @@
           <p>A web app for student organizations to manage projects, events, and tasks. Currently building out a
             Kanban-style task board on top of a 5-table relational schema — orgs, members, projects, and tasks with
             roles, priorities, and due dates.</p>
-
-          <div class="proj-bar-label"><span>Build progress</span><span>Day 4 of 7</span></div>
-          <div class="proj-bar">
-            <div class="proj-bar-fill" style="width:57%;"></div>
-          </div>
-
-          <div class="buildlog">
-            <div class="buildlog-row done"><span class="check">✓</span>Dashboard UI — cards, shadows, progress bars
-            </div>
-            <div class="buildlog-row done"><span class="check">✓</span>Designed 5-table MySQL schema + ARCHITECTURE.md
-            </div>
-            <div class="buildlog-row next"><span class="check">›</span>Wiring MySQL → Express → React (live data)</div>
-          </div>
 
           <div class="tag-row" style="margin-top:16px;">
             <span class="tag">React</span><span class="tag">Express (planned)</span><span class="tag">MySQL</span>
@@ -1265,9 +1251,10 @@
             <span class="proj-status live"><span class="led"></span>Shipped</span>
           </div>
           <h3>Distributed Log Monitoring & Alert System</h3>
-          <p>A Dockerized distributed monitoring system spanning 4 observability workflows: ingestion, processing,
-            storage, and automated alerting. Python/FastAPI REST APIs power centralized log pipelines with Linux-based
-            inter-service HTTP and socket communication.</p>
+          <p>Designed a 4-stage observability pipeline — ingestion, processing, storage, and automated alerting —
+            Dockerized across distributed services. Centralized telemetry over 2 communication protocols (HTTP and
+            sockets) using Python/FastAPI and Linux-based inter-service communication, with anomaly detection that
+            automatically flags error spikes and potential service failures.</p>
           <div class="tag-row">
             <span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">Docker</span><span
               class="tag">Linux</span>
@@ -1294,9 +1281,9 @@
             <h3>SparkSF @SFSU <span class="role">· President</span></h3>
             <span class="tl-date">Aug 2026 – Present</span>
           </div>
-          <p>Lead strategy and execution for 8+ career, entrepreneurship, and networking initiatives, coordinating a
-            6-member officer team. Built relationships with 10+ founders and professionals, reaching 150+ students
-            across campus.</p>
+          <p>Lead a 6-member officer team across 8+ career, entrepreneurship, and networking initiatives, managing
+            priorities, coordination, and execution for programs reaching 150+ students. Built relationships with 10+
+            founders and professionals to support speaker events and workshops across campus.</p>
         </div>
         <div class="lead-card">
           <div class="tl-head">
@@ -1319,8 +1306,8 @@
             <h3>J. Paul Leonard Library @SFSU <span class="role">· IT Help Desk Assistant</span></h3>
             <span class="tl-date">Jul 2023 – Jul 2025</span>
           </div>
-          <p>Resolved 50+ weekly technical issues across Windows, Linux, hardware, software, and campus network systems
-            for students, faculty, and staff.</p>
+          <p>Resolved 50+ technical issues weekly across Linux, Windows, hardware, software, and campus networks by
+            diagnosing system and connectivity failures for students, faculty, and staff.</p>
         </div>
       </div>
     </div>
@@ -1332,7 +1319,7 @@
       <div class="section-head reveal">
         <div class="eyebrow">Skills</div>
         <h2>The stack, end to end.</h2>
-        <p>Technologies I use across frontend, backend, data, and infrastructure.</p>
+        <p>Technologies I use across frontend, backend, data, infrastructure, and AI-assisted development.</p>
       </div>
 
       <div class="skills-grid reveal">
@@ -1341,15 +1328,16 @@
           <div class="tag-row">
             <span class="tag">Python</span><span class="tag">C++</span><span class="tag">Java</span><span
               class="tag">JavaScript</span><span class="tag">TypeScript</span><span class="tag">SQL</span><span
-              class="tag">React</span><span class="tag">HTML/CSS</span><span class="tag">Tailwind CSS</span>
+              class="tag">React</span><span class="tag">HTML/CSS</span><span class="tag">Tailwind CSS</span><span
+              class="tag">Data Structures & Algorithms</span>
           </div>
         </div>
         <div class="skill-card">
           <h4>Backend & Systems</h4>
           <div class="tag-row">
             <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">FastAPI</span><span
-              class="tag">REST APIs</span><span class="tag">Distributed Systems</span><span class="tag">State
-              Management</span>
+              class="tag">REST APIs</span><span class="tag">Distributed Systems</span><span class="tag">Parallel
+              Computing</span><span class="tag">Linux/Unix</span><span class="tag">State Management</span>
           </div>
         </div>
         <div class="skill-card">
@@ -1373,7 +1361,8 @@
           <div class="tag-row">
             <span class="tag">Agile/Scrum</span><span class="tag">Testing</span><span class="tag">GitHub
               Copilot</span><span class="tag">Claude Code</span><span class="tag">Prompt Engineering</span><span
-              class="tag">AI Automation</span>
+              class="tag">AI Automation</span><span class="tag">Machine Learning</span><span class="tag">NLP</span><span
+              class="tag">PyTorch</span>
           </div>
         </div>
       </div>
@@ -1403,13 +1392,6 @@
       </div>
     </div>
   </section>
-
-  <footer>
-    <div class="wrap foot-row">
-      <span>Grishma Thumar — built from scratch, shipped with care.</span>
-      <span>© 2026. <a href="#hero">Back to top ↑</a></span>
-    </div>
-  </footer>
 
   <script>
     // mobile drawer
